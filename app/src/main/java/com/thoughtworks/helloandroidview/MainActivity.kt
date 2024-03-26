@@ -1,6 +1,7 @@
 package com.thoughtworks.helloandroidview
 
 import android.os.Bundle
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
@@ -24,14 +25,15 @@ class MainActivity : AppCompatActivity() {
     private fun generateButtons() {
         val layout = findViewById<LinearLayout>(R.id.linear_layout)
 
-
         for (number in 1..20) {
             val button = Button(this)
             button.text = "${getString(R.string.button_name)} $number"
-            button.layoutParams = LinearLayout.LayoutParams(
+            val layoutParams = ViewGroup.MarginLayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
             )
+            layoutParams.setMargins(0,16,0,0)
+            button.layoutParams = layoutParams
 
             layout.addView(button)
         }
