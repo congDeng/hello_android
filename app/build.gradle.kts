@@ -25,14 +25,14 @@ android {
         val keystoreProperties = Properties()
         keystoreProperties.load(FileInputStream(keystorePropertiesFile))
 
-        create("debug") {
+        create("debug_sign") {
             keyAlias = keystoreProperties["debugKeyAlias"] as String
             keyPassword = keystoreProperties["debugKeyPassword"] as String
             storeFile = rootProject.file(keystoreProperties["debugStoreFile"] as String)
             storePassword = keystoreProperties["debugStorePassword"] as String
         }
 
-        create("release") {
+        create("release_sign") {
             keyAlias = keystoreProperties["releaseKeyAlias"] as String
             keyPassword = keystoreProperties["releaseKeyPassword"] as String
             storeFile = rootProject.file(keystoreProperties["releaseStoreFile"] as String)
@@ -41,10 +41,10 @@ android {
     }
     buildTypes {
         debug {
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName("debug_sign")
         }
         release {
-            signingConfig = signingConfigs.getByName("release")
+            signingConfig = signingConfigs.getByName("release_sign")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
