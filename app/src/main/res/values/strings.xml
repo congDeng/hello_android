@@ -1,9 +1,4 @@
 <resources>
     <string name="app_name">HelloAndroidView</string>
-    <string name="random_button">RANDOM</string>
-    <string name="toast_button_text">TOAST</string>
-    <string name="count_button_text">COUNT</string>
-    <string name="button_1">button 1</string>
-    <string name="button_2">button 2</string>
-    <string name="button_3">button 3</string>
+    <string name="button_name">button</string>
 </resources>
