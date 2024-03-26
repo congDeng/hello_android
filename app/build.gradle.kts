@@ -6,11 +6,6 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid)
 }
 
-val keystorePropertiesFile = rootProject.file("keystore.properties")
-val keystoreProperties = Properties()
-keystoreProperties.load(FileInputStream(keystorePropertiesFile))
-
-
 android {
     namespace = "com.thoughtworks.helloandroidview"
     compileSdk = 34
@@ -26,24 +21,35 @@ android {
     }
 
     signingConfigs {
-        create("config") {
-            keyAlias = keystoreProperties["keyAlias"] as String
-            keyPassword = keystoreProperties["keyPassword"] as String
-            storeFile = file(keystoreProperties["storeFile"] as String)
-            storePassword = keystoreProperties["storePassword"] as String
+        val keystorePropertiesFile = rootProject.file("keystore.properties")
+        val keystoreProperties = Properties()
+        keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+
+        create("debug") {
+            keyAlias = keystoreProperties["debugKeyAlias"] as String
+            keyPassword = keystoreProperties["debugKeyPassword"] as String
+            storeFile = rootProject.file(keystoreProperties["debugStoreFile"] as String)
+            storePassword = keystoreProperties["debugStorePassword"] as String
+        }
+
+        create("release") {
+            keyAlias = keystoreProperties["releaseKeyAlias"] as String
+            keyPassword = keystoreProperties["releaseKeyPassword"] as String
+            storeFile = rootProject.file(keystoreProperties["releaseStoreFile"] as String)
+            storePassword = keystoreProperties["releaseStorePassword"] as String
         }
     }
     buildTypes {
         debug {
-            signingConfig = signingConfigs.getByName("config")
+            signingConfig = signingConfigs.getByName("debug")
         }
         release {
+            signingConfig = signingConfigs.getByName("release")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            signingConfig = signingConfigs.getByName("config")
         }
     }
     compileOptions {
