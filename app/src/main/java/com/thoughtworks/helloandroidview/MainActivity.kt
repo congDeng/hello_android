@@ -33,11 +33,11 @@ class MainActivity : AppCompatActivity() {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
             )
-            layoutParams.setMargins(0,16,0,0)
+            layoutParams.setMargins(0, 16, 0, 0)
             button.layoutParams = layoutParams
 
-            if(number == 1){
-                button.setOnClickListener{
+            if (number == 1) {
+                button.setOnClickListener {
                     val intent = Intent(this@MainActivity, ConstraintActivity::class.java)
                     startActivity(intent)
                 }
