@@ -42,6 +42,13 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
             }
+            if (number == 2) {
+                button.text = getString(R.string.login_button_name)
+                button.setOnClickListener {
+                    val intent = Intent(this@MainActivity, LoginActivity::class.java)
+                    startActivity(intent)
+                }
+            }
 
             layout.addView(button)
         }
