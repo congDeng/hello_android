@@ -1,5 +1,6 @@
 package com.thoughtworks.helloandroidview
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.ViewGroup
 import android.widget.Button
@@ -34,6 +35,13 @@ class MainActivity : AppCompatActivity() {
             )
             layoutParams.setMargins(0,16,0,0)
             button.layoutParams = layoutParams
+
+            if(number == 5){
+                button.setOnClickListener{
+                    val intent = Intent(this@MainActivity, RelativeActivity::class.java)
+                    startActivity(intent)
+                }
+            }
 
             layout.addView(button)
         }

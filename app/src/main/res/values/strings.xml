@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">HelloAndroidView</string>
     <string name="button_name">button</string>
+    <string name="developer">程序员</string>
+    <string name="uiDeveloper">UI设计师</string>
+    <string name="developerLover">程序员鼓励师</string>
 </resources>

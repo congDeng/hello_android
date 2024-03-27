@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="screenBackground">#2196F3</color>
     <color name="gray">#FFA0A0A0</color>
+    <color name="textBackground">#009688</color>
 </resources>
