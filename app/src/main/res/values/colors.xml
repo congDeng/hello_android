@@ -4,4 +4,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="screenBackground">#2196F3</color>
     <color name="gray">#FFA0A0A0</color>
+    <color name="input_text_color">#e4e4e4</color>
+    <color name="input_border_color">#e4e4e4</color>
+    <color name="checkbox_text_color">#222222</color>
+    <color name="login_button_bg">#1f4ba5</color>
+    <color name="other_text_color">#b2b2b2</color>
+    <color name="sign_up_color">#1f4ba5</color>
 </resources>
