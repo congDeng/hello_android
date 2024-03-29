@@ -3,10 +3,10 @@
     android:shape="rectangle">
     <!-- Border -->
     <stroke
-        android:width="2dp"
+        android:width="@dimen/_2dp"
         android:color="@color/input_border_color" />
     <!-- Background -->
     <solid android:color="@android:color/white" />
     <!-- Corner radius -->
-    <corners android:radius="8dp" />
+    <corners android:radius="@dimen/_8dp" />
 </shape>

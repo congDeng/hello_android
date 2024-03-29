@@ -75,6 +75,14 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
+            if (number == 4) {
+                button.text = getString(R.string.fragment_button_name)
+                button.setOnClickListener {
+                    val intent = Intent(this@MainActivity, LanguageSelectionActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+
             layout.addView(button)
         }
     }
@@ -112,14 +120,13 @@ class MainActivity : AppCompatActivity() {
                 val name: String =
                     it.getString(it.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
                 var phoneNumber: String? = null
+                val id = it.getLong(it.getColumnIndex(ContactsContract.Contacts._ID))
                 if (it.getInt(it.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER)) > 0) {
                     val phoneCursor: Cursor? = contentResolver.query(
                         ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
                         null,
-                        ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ?",
-                        arrayOf(
-                            it.getLong(it.getColumnIndex(ContactsContract.Contacts._ID)).toString()
-                        ),
+                        ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = $id",
+                       null,
                         null
                     )
                     phoneCursor?.use { pc ->
@@ -130,7 +137,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-                showContactDialog(name,phoneNumber)
+                showContactDialog(name, phoneNumber)
             }
         }
     }

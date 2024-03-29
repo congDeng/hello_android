@@ -4,6 +4,7 @@
     <string name="login_button_name">Login</string>
     <string name="constrain_layout_button_name">constrain_layout</string>
     <string name="pick_contact_button_name">pick_contact</string>
+    <string name="fragment_button_name">fragment</string>
     <string name="hello">Hello!</string>
     <string name="logo">Logo</string>
     <string name="signup">Signup</string>
@@ -14,4 +15,8 @@
     <string name="remember_me">Remember me</string>
     <string name="password">Password</string>
     <string name="username">Username</string>
+    <string name="android_content">Android is a mobile operating system based on a modified version of the Linux kernel and other open source software, designed primarily for touchscreen mobile devices such as smartphones and tablets.</string>
+    <string name="android">Android</string>
+    <string name="java">Java</string>
+    <string name="java_content">Java is a High Level, class-based, object-oriented programming language that is designed to have\nas few implementation dependencies as possible.</string>
 </resources>
