@@ -83,6 +83,14 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
+            if (number == 5) {
+                button.text = getString(R.string.recycler_view_button_name)
+                button.setOnClickListener {
+                    val intent = Intent(this@MainActivity, TweetsActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+
             layout.addView(button)
         }
     }
@@ -126,7 +134,7 @@ class MainActivity : AppCompatActivity() {
                         ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
                         null,
                         ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = $id",
-                       null,
+                        null,
                         null
                     )
                     phoneCursor?.use { pc ->

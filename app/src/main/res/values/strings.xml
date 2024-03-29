@@ -5,6 +5,7 @@
     <string name="constrain_layout_button_name">constrain_layout</string>
     <string name="pick_contact_button_name">pick_contact</string>
     <string name="fragment_button_name">fragment</string>
+    <string name="recycler_view_button_name">RecyclerView</string>
     <string name="hello">Hello!</string>
     <string name="logo">Logo</string>
     <string name="signup">Signup</string>
