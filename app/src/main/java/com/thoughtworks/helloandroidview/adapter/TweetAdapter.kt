@@ -32,14 +32,17 @@ class TweetAdapter : RecyclerView.Adapter<ViewHolder>() {
         val tweet = tweets[position]
         val tweetViewHolder = holder as TweetViewHolder
         tweetViewHolder.nicknmae.text = tweet.sender.nick
+        tweetViewHolder.content.text = tweet.content
     }
 
 
     internal class TweetViewHolder(itemView: View) : ViewHolder(itemView) {
         var nicknmae: TextView
+        var content: TextView
 
         init {
             nicknmae = itemView.findViewById(R.id.nickname)
+            content = itemView.findViewById(R.id.content)
         }
     }
 
