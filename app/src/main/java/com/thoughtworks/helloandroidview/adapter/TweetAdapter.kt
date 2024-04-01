@@ -4,9 +4,11 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import coil.load
 import com.thoughtworks.helloandroidview.R
 import com.thoughtworks.helloandroidview.model.Tweet
 
@@ -19,21 +21,25 @@ class TweetAdapter : RecyclerView.Adapter<ViewHolder>() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setTweets(newTweets: ArrayList<Tweet>){
+    fun setTweets(newTweets: ArrayList<Tweet>) {
         tweets.clear()
         tweets.addAll(newTweets)
         notifyDataSetChanged()
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return when (viewType) {
             VIEW_TYPE_ITEM -> {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 TweetViewHolder(layoutInflater.inflate(R.layout.tweet_item_layout, parent, false))
             }
+
             VIEW_TYPE_NO_MORE_DATA -> {
-                val view = LayoutInflater.from(parent.context).inflate(R.layout.no_more_data_item_layout, parent, false)
+                val view = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.no_more_data_item_layout, parent, false)
                 NoMoreDataViewHolder(view)
             }
+
             else -> throw IllegalArgumentException("Invalid view type")
         }
 
@@ -52,6 +58,7 @@ class TweetAdapter : RecyclerView.Adapter<ViewHolder>() {
             val tweet = tweets[position]
             holder.nicknmae.text = tweet.sender.nick
             holder.content.text = tweet.content
+            holder.avatar.load(tweet.sender.avatar)
         }
     }
 
@@ -67,10 +74,12 @@ class TweetAdapter : RecyclerView.Adapter<ViewHolder>() {
     internal class TweetViewHolder(itemView: View) : ViewHolder(itemView) {
         var nicknmae: TextView
         var content: TextView
+        var avatar: ImageView
 
         init {
             nicknmae = itemView.findViewById(R.id.nickname)
             content = itemView.findViewById(R.id.content)
+            avatar = itemView.findViewById(R.id.avatar)
         }
     }
 
