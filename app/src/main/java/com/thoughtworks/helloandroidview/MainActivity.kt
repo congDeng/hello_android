@@ -91,6 +91,14 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
+            if (number == 6) {
+                button.text = getString(R.string.thread_button_name)
+                button.setOnClickListener {
+                    val intent = Intent(this@MainActivity, ThreadActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+
             layout.addView(button)
         }
     }
