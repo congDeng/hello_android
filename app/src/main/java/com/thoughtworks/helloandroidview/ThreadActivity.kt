@@ -9,12 +9,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 
-class ThreadActivity : AppCompatActivity() {
-    private lateinit var button: Button
+class ThreadActivity : AppCompatActivity(R.layout.activity_thread) {
+    private val button: Button by lazy { findViewById(R.id.button) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_thread)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -25,7 +24,6 @@ class ThreadActivity : AppCompatActivity() {
     }
 
     private fun initUi() {
-        button = findViewById(R.id.button)
         button.text = "0"
         button.setOnClickListener {
             CounterTask().execute()
@@ -41,7 +39,7 @@ class ThreadActivity : AppCompatActivity() {
         }
 
         override fun doInBackground(vararg params: Void): Void? {
-            for (count in 1..10){
+            for (count in 1..10) {
                 Thread.sleep(1000)
                 publishProgress(count)
             }

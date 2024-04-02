@@ -55,10 +55,7 @@ class TweetAdapter : RecyclerView.Adapter<ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         if (holder is TweetViewHolder) {
-            val tweet = tweets[position]
-            holder.nickname.text = tweet.sender.nick
-            holder.content.text = tweet.content
-            holder.avatar.load(tweet.sender.avatar)
+            holder.bind(tweets[position])
         }
     }
 
@@ -72,14 +69,14 @@ class TweetAdapter : RecyclerView.Adapter<ViewHolder>() {
 
 
     internal class TweetViewHolder(itemView: View) : ViewHolder(itemView) {
-        var nickname: TextView
-        var content: TextView
-        var avatar: ImageView
+        private val nickname: TextView by lazy { itemView.findViewById(R.id.nickname) }
+        private val content: TextView by lazy { itemView.findViewById(R.id.content) }
+        private val avatar: ImageView by lazy { itemView.findViewById(R.id.avatar) }
 
-        init {
-            nickname = itemView.findViewById(R.id.nickname)
-            content = itemView.findViewById(R.id.content)
-            avatar = itemView.findViewById(R.id.avatar)
+        fun bind(tweet: Tweet) {
+            nickname.text = tweet.sender.nick
+            content.text = tweet.content
+            avatar.load(tweet.sender.avatar)
         }
     }
 
