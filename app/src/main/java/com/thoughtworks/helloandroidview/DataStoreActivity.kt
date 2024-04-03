@@ -1,5 +1,6 @@
 package com.thoughtworks.helloandroidview
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -7,17 +8,14 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 
+private val Context.dataStore by preferencesDataStore("user_preferences")
 class DataStoreActivity : AppCompatActivity() {
-    private val dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
