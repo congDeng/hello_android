@@ -11,8 +11,8 @@ import kotlinx.coroutines.flow.Flow
 interface TweetDao {
 
     @Query("SELECT * from tweet")
-    fun getTweets(): Flow<List<Tweet>>
+    fun fetchTweets(): Flow<List<Tweet>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(plants: List<Tweet>)
+    suspend fun insertAll(tweets: List<Tweet>)
 }

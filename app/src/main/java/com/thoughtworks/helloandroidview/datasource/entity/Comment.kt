@@ -4,6 +4,6 @@ import androidx.room.Entity
 
 @Entity(tableName = "comment")
 data class Comment(
-    var content: String,
-    var sender: Sender
+    var content: String?,
+    var sender: Sender?
 )

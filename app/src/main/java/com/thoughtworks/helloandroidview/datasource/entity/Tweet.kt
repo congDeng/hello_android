@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "tweet")
 data class Tweet(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val content: String,
+    val content: String?,
     val images: List<Image>?,
     val sender: Sender?,
     val comments: List<Comment>?,
