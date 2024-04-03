@@ -7,6 +7,7 @@
     <string name="fragment_button_name">fragment</string>
     <string name="recycler_view_button_name">RecyclerView</string>
     <string name="thread_button_name">Thread</string>
+    <string name="shared_preference_button_name">Shared_Preference</string>
     <string name="hello">Hello!</string>
     <string name="logo">Logo</string>
     <string name="signup">Signup</string>
@@ -23,4 +24,9 @@
     <string name="java_content">Java is a High Level, class-based, object-oriented programming language that is designed to have\nas few implementation dependencies as possible.</string>
     <string name="avatar">avatar</string>
     <string name="no_more_data">到底了</string>
+    <string name="tips">提示信息：</string>
+    <string name="tips_content">点击“知道了”不再提示。</string>
+    <string name="welcome">欢迎您回来</string>
+    <string name="got_it">知道了</string>
+    <string name="is_hint_shown">isHintShown</string>
 </resources>

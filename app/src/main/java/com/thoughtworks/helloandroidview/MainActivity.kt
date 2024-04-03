@@ -99,6 +99,14 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
+            if (number == 7) {
+                button.text = getString(R.string.shared_preference_button_name)
+                button.setOnClickListener {
+                    val intent = Intent(this@MainActivity, SharedPreferenceActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+
             layout.addView(button)
         }
     }
