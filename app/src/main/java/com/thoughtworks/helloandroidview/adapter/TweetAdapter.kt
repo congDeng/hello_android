@@ -74,9 +74,9 @@ class TweetAdapter : RecyclerView.Adapter<ViewHolder>() {
         private val avatar: ImageView by lazy { itemView.findViewById(R.id.avatar) }
 
         fun bind(tweet: Tweet) {
-            nickname.text = tweet.sender.nick
+            nickname.text = tweet.sender?.nick
             content.text = tweet.content
-            avatar.load(tweet.sender.avatar)
+            avatar.load(tweet.sender?.avatar)
         }
     }
 
