@@ -18,4 +18,12 @@ object Utils {
             null
         }
     }
+
+    fun readFileFromRaw(context: Context, resourceId: Int): String {
+        val inputStream: InputStream = context.resources.openRawResource(resourceId)
+        val buffer = ByteArray(inputStream.available())
+        inputStream.read(buffer)
+        inputStream.close()
+        return String(buffer, Charsets.UTF_8)
+    }
 }

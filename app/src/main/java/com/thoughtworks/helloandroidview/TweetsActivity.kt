@@ -9,6 +9,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.thoughtworks.helloandroidview.adapter.TweetAdapter
 import com.thoughtworks.helloandroidview.model.Tweet
+import com.thoughtworks.helloandroidview.utils.Utils.readFileFromRaw
 import com.thoughtworks.helloandroidview.utils.Utils.readJsonFromAssets
 
 class TweetsActivity : AppCompatActivity() {
@@ -20,7 +21,7 @@ class TweetsActivity : AppCompatActivity() {
     }
 
     private fun getTweets(): ArrayList<Tweet> {
-        val jsonString = readJsonFromAssets(this, "tweets.json")
+        val jsonString = readFileFromRaw(this, R.raw.tweets)
         val gson = Gson()
         val listType = object : TypeToken<ArrayList<Tweet>>() {}.type
         val tweets = gson.fromJson<ArrayList<Tweet>>(jsonString, listType)
