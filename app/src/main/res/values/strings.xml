@@ -8,6 +8,7 @@
     <string name="recycler_view_button_name">RecyclerView</string>
     <string name="thread_button_name">Thread</string>
     <string name="shared_preference_button_name">Shared_Preference</string>
+    <string name="data_store_button_name">Data_Store</string>
     <string name="hello">Hello!</string>
     <string name="logo">Logo</string>
     <string name="signup">Signup</string>

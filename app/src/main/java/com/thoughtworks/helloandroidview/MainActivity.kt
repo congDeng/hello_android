@@ -107,6 +107,14 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
+            if (number == 8) {
+                button.text = getString(R.string.data_store_button_name)
+                button.setOnClickListener {
+                    val intent = Intent(this@MainActivity, DataStoreActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+
             layout.addView(button)
         }
     }
