@@ -4,10 +4,12 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.thoughtworks.helloandroidview.datasource.dao.TweetDao
 import com.thoughtworks.helloandroidview.datasource.entity.Tweet
 
 @Database(entities = [Tweet::class], version = 1, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun tweetDao(): TweetDao
 
