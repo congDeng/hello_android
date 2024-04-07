@@ -1,6 +1,7 @@
 package com.thoughtworks.helloandroidview
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -40,11 +41,14 @@ class TweetsActivity : AppCompatActivity() {
 
     private fun insertDataIntoDatabase() {
         lifecycleScope.launch {
-            TweetService().fetchTweets().use { response ->
-                withContext(Dispatchers.IO) {
-                    database.tweetDao().insertAll(getTweets(response.body.string()))
+            try {
+                TweetService().fetchTweets().use { response ->
+                    withContext(Dispatchers.IO) {
+                        database.tweetDao().insertAll(getTweets(response.body.string()))
+                    }
                 }
-
+            } catch (e: Exception) {
+                Toast.makeText(this@TweetsActivity, e.message, Toast.LENGTH_SHORT).show()
             }
         }
     }
