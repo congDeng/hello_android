@@ -11,8 +11,10 @@ import com.google.gson.reflect.TypeToken
 import com.thoughtworks.helloandroidview.adapter.TweetAdapter
 import com.thoughtworks.helloandroidview.datasource.AppDatabase
 import com.thoughtworks.helloandroidview.datasource.entity.Tweet
-import com.thoughtworks.helloandroidview.utils.Utils.readFileFromRaw
+import com.thoughtworks.helloandroidview.network.TweetService
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class TweetsActivity : AppCompatActivity() {
     private val database: AppDatabase by lazy { AppDatabase.getInstance(this) }
@@ -38,12 +40,16 @@ class TweetsActivity : AppCompatActivity() {
 
     private fun insertDataIntoDatabase() {
         lifecycleScope.launch {
-            database.tweetDao().insertAll(getTweets())
+            TweetService().fetchTweets().use { response ->
+                withContext(Dispatchers.IO) {
+                    database.tweetDao().insertAll(getTweets(response.body.string()))
+                }
+
+            }
         }
     }
 
-    private fun getTweets(): List<Tweet> {
-        val jsonString = readFileFromRaw(this, R.raw.tweets)
+    private fun getTweets(jsonString: String): List<Tweet> {
         val gson = Gson()
         val listType = object : TypeToken<List<Tweet>>() {}.type
         val tweets = gson.fromJson<List<Tweet>>(jsonString, listType)
