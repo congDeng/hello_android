@@ -6,9 +6,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitBuilder {
     private const val BASE_URL = "https://raw.githubusercontent.com/TW-Android-Junior-Training/android_training_practice/main/json/"
 
-    val retrofit: TweetService = Retrofit.Builder()
+    val retrofit: Retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-        .create(TweetService::class.java)
 }

@@ -73,11 +73,13 @@ class TweetAdapter : RecyclerView.Adapter<ViewHolder>() {
         private val nickname: TextView by lazy { itemView.findViewById(R.id.nickname) }
         private val content: TextView by lazy { itemView.findViewById(R.id.content) }
         private val avatar: ImageView by lazy { itemView.findViewById(R.id.avatar) }
+        private val date: TextView by lazy { itemView.findViewById(R.id.date) }
 
         fun bind(tweet: Tweet) {
             nickname.text = tweet.sender?.nick
             content.text = tweet.content
             avatar.load(tweet.sender?.avatar)
+            date.text = tweet.date
         }
     }
 

@@ -11,5 +11,6 @@ data class Tweet(
     val sender: Sender?,
     val comments: List<Comment>?,
     val error: String?,
-    val unknownError: String?
+    val unknownError: String?,
+    val date: String
 )

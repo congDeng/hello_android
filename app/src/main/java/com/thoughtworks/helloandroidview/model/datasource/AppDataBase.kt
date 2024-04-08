@@ -8,7 +8,11 @@ import androidx.room.TypeConverters
 import com.thoughtworks.helloandroidview.model.datasource.dao.TweetDao
 import com.thoughtworks.helloandroidview.model.datasource.entity.Tweet
 
-@Database(entities = [Tweet::class], version = 1, exportSchema = false)
+
+@Database(
+    entities = [Tweet::class],
+    version = 1
+)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun tweetDao(): TweetDao
@@ -16,7 +20,8 @@ abstract class AppDatabase : RoomDatabase() {
     companion object {
 
         // For Singleton instantiation
-        @Volatile private var instance: AppDatabase? = null
+        @Volatile
+        private var instance: AppDatabase? = null
 
         fun getInstance(context: Context): AppDatabase {
             return instance ?: synchronized(this) {
@@ -28,9 +33,10 @@ abstract class AppDatabase : RoomDatabase() {
         }
 
         private fun buildDatabase(context: Context): AppDatabase {
-            return Room.databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME).build()
+            return Room.databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME)
+                .build()
         }
     }
 }
 
-private const val DATABASE_NAME = "my-room-db"
+private const val DATABASE_NAME = "new-room-db"

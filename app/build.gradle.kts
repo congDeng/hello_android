@@ -19,6 +19,12 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
+            }
+        }
     }
 
     signingConfigs {
@@ -66,6 +72,8 @@ dependencies {
     implementation(libs.okhttp.coroutines)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
+    implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.fragment.ktx)
     val room_version = "2.6.1"
 
     implementation("androidx.room:room-runtime:$room_version")

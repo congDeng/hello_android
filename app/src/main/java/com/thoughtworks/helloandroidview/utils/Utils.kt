@@ -3,6 +3,9 @@ package com.thoughtworks.helloandroidview.utils
 import android.content.Context
 import java.io.IOException
 import java.io.InputStream
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 object Utils {
     fun readJsonFromAssets(context: Context, fileName: String): String? {
@@ -25,5 +28,13 @@ object Utils {
         inputStream.read(buffer)
         inputStream.close()
         return String(buffer, Charsets.UTF_8)
+    }
+
+    fun formatTimestamp(timestampString: String): String {
+        val timestamp = timestampString.toLong()
+        val date = Date(timestamp)
+
+        val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+        return sdf.format(date)
     }
 }
