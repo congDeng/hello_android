@@ -1,11 +1,11 @@
-package com.thoughtworks.helloandroidview.datasource
+package com.thoughtworks.helloandroidview.model.datasource
 
 import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.thoughtworks.helloandroidview.datasource.entity.Comment
-import com.thoughtworks.helloandroidview.datasource.entity.Image
-import com.thoughtworks.helloandroidview.datasource.entity.Sender
+import com.thoughtworks.helloandroidview.model.datasource.entity.Comment
+import com.thoughtworks.helloandroidview.model.datasource.entity.Image
+import com.thoughtworks.helloandroidview.model.datasource.entity.Sender
 
 class Converters {
     @TypeConverter

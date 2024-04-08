@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import coil.load
 import com.thoughtworks.helloandroidview.R
-import com.thoughtworks.helloandroidview.datasource.entity.Tweet
+import com.thoughtworks.helloandroidview.model.datasource.entity.Tweet
 
 
 class TweetAdapter : RecyclerView.Adapter<ViewHolder>() {

@@ -1,4 +1,4 @@
-package com.thoughtworks.helloandroidview
+package com.thoughtworks.helloandroidview.view
 
 import android.content.Context
 import android.os.Bundle
@@ -12,6 +12,7 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.lifecycleScope
+import com.thoughtworks.helloandroidview.R
 import kotlinx.coroutines.launch
 
 private val Context.dataStore by preferencesDataStore("user_preferences")

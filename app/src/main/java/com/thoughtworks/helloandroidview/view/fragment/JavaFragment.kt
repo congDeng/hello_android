@@ -1,4 +1,4 @@
-package com.thoughtworks.helloandroidview.fragment
+package com.thoughtworks.helloandroidview.view.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -1,4 +1,4 @@
-package com.thoughtworks.helloandroidview
+package com.thoughtworks.helloandroidview.view
 
 import android.os.Bundle
 import android.widget.Toast
@@ -7,10 +7,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.thoughtworks.helloandroidview.R
 import com.thoughtworks.helloandroidview.adapter.TweetAdapter
-import com.thoughtworks.helloandroidview.datasource.AppDatabase
-import com.thoughtworks.helloandroidview.datasource.entity.Tweet
-import com.thoughtworks.helloandroidview.network.RetrofitBuilder.retrofit
+import com.thoughtworks.helloandroidview.model.datasource.AppDatabase
+import com.thoughtworks.helloandroidview.model.datasource.entity.Tweet
+import com.thoughtworks.helloandroidview.model.network.RetrofitBuilder.retrofit
 import kotlinx.coroutines.launch
 
 class TweetsActivity : AppCompatActivity() {

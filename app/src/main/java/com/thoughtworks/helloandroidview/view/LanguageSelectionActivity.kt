@@ -1,4 +1,4 @@
-package com.thoughtworks.helloandroidview
+package com.thoughtworks.helloandroidview.view
 
 import android.os.Bundle
 import android.widget.Button
@@ -8,8 +8,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import com.thoughtworks.helloandroidview.fragment.AndroidFragment
-import com.thoughtworks.helloandroidview.fragment.JavaFragment
+import com.thoughtworks.helloandroidview.R
+import com.thoughtworks.helloandroidview.view.fragment.AndroidFragment
+import com.thoughtworks.helloandroidview.view.fragment.JavaFragment
 
 class LanguageSelectionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

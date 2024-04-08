@@ -1,12 +1,12 @@
-package com.thoughtworks.helloandroidview.datasource
+package com.thoughtworks.helloandroidview.model.datasource
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.thoughtworks.helloandroidview.datasource.dao.TweetDao
-import com.thoughtworks.helloandroidview.datasource.entity.Tweet
+import com.thoughtworks.helloandroidview.model.datasource.dao.TweetDao
+import com.thoughtworks.helloandroidview.model.datasource.entity.Tweet
 
 @Database(entities = [Tweet::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)

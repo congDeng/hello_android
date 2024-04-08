@@ -1,4 +1,4 @@
-package com.thoughtworks.helloandroidview.datasource.entity
+package com.thoughtworks.helloandroidview.model.datasource.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -1,10 +1,10 @@
-package com.thoughtworks.helloandroidview.datasource.dao
+package com.thoughtworks.helloandroidview.model.datasource.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.thoughtworks.helloandroidview.datasource.entity.Tweet
+import com.thoughtworks.helloandroidview.model.datasource.entity.Tweet
 import kotlinx.coroutines.flow.Flow
 
 @Dao
